@@ -26,9 +26,24 @@ namespace RSAApp
                     }
                 foreach (KeyValuePair<int, string> item in value)
                 {
-                    
+                    //чтоб не были одинаковыми
                 }
+                athlets = value;
             }
+        }
+        public void addAthlet(int key,string value)
+        {
+            Dictionary<int, string> tempAthlets = Athlets;
+            tempAthlets.Add(key, value);
+            Athlets = tempAthlets;
+        }
+        public void removeAthlet(int key)
+        {
+            Athlets.Remove(key);
+        }
+        public void changeAthlet(int key,string newValue)
+        {
+            Athlets[key] = newValue;
         }
     }
 }

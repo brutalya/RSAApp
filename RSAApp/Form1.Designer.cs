@@ -243,6 +243,7 @@
             this.создатьТурнирToolStripMenuItem.Name = "создатьТурнирToolStripMenuItem";
             this.создатьТурнирToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
             this.создатьТурнирToolStripMenuItem.Text = "Создать турнир";
+            this.создатьТурнирToolStripMenuItem.Click += new System.EventHandler(this.создатьТурнирToolStripMenuItem_Click);
             // 
             // Form1
             // 

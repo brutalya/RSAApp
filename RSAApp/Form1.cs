@@ -32,5 +32,11 @@ namespace RSAApp
         {
            
         }
+
+        private void создатьТурнирToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TournForm newForm = new TournForm();
+            newForm.Show();
+        }
     }
 }

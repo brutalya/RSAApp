@@ -6,14 +6,20 @@ using System.Threading.Tasks;
 
 namespace RSAApp
 {
-    class results
+    class Athlets
     {
-        Dictionary<int, string> athlets;
-        public Dictionary<int, string> Athlets
+        int number;
+        public int Number
+        {
+            get { return number; }
+            set { if (value > 0) number = value; else throw new Exception("Участников должно быть больше 0!"); }
+        }
+        Dictionary<int, string> athletsDict;
+        public Dictionary<int, string> AthletsDict
         {
             get
             {
-                return athlets;
+                return athletsDict;
             }
             set
             {
@@ -28,22 +34,35 @@ namespace RSAApp
                 {
                     //чтоб не были одинаковыми
                 }
-                athlets = value;
+                athletsDict = value;
             }
+        }
+        public Athlets()
+        {
+
+        }
+        public Athlets(int num)
+        {
+            Number = num;
+        }
+        public Athlets(Dictionary<int,string> ath)
+        {
+            AthletsDict = ath;
+            
         }
         public void addAthlet(int key,string value)
         {
-            Dictionary<int, string> tempAthlets = Athlets;
+            Dictionary<int, string> tempAthlets = AthletsDict;
             tempAthlets.Add(key, value);
-            Athlets = tempAthlets;
+            AthletsDict = tempAthlets;
         }
         public void removeAthlet(int key)
         {
-            Athlets.Remove(key);
+            AthletsDict.Remove(key);
         }
         public void changeAthlet(int key,string newValue)
         {
-            Athlets[key] = newValue;
+            AthletsDict[key] = newValue;
         }
     }
 }

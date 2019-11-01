@@ -21,12 +21,16 @@ namespace RSAApp
         private void button1_Click(object sender, EventArgs e)
         {
             try
-            {          
-                Tournament newTournament = new Tournament(Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text));
+            {
+                //Athlets ath = new Athlets(Convert.ToInt32(textBox1.Text));
+                //Exercises ex = new Exercises(Convert.ToInt32(textBox2.Text));
+                Tournament newTournament = new Tournament(textBox3.Text);
                 mainTournament = newTournament;
+                MessageBox.Show("Турнир успехно создан!");
+                this.Close();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
-            this.Close();
+            
         }
     }
 }

@@ -28,13 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.создатьТурнирToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.печатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,17 +45,19 @@
             this.параметрыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.результатыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.добавитьАтлетаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.изменитьАтлетаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.удалитьАтлетаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.видToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.добавитьУпражнениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изменитьУпражнениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьУпражнениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.создатьТурнирToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.обновитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,7 +77,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.tableLayoutPanel1);
+            this.tabPage1.Controls.Add(this.dataGridView2);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -81,24 +86,20 @@
             this.tabPage1.Text = "РЕЗУЛЬТАТЫ";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel1
+            // dataGridView2
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(786, 100);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView2.Name = "dataGridView2";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridView2.Size = new System.Drawing.Size(786, 387);
+            this.dataGridView2.TabIndex = 0;
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.tabControl2);
+            this.tabPage2.Controls.Add(this.dataGridView1);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -108,15 +109,16 @@
             this.tabPage2.Text = "УПРАЖНЕНИЯ";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // tabControl2
+            // dataGridView1
             // 
-            this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tabControl2.Location = new System.Drawing.Point(3, 3);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(786, 387);
-            this.tabControl2.TabIndex = 0;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridView1.Size = new System.Drawing.Size(786, 387);
+            this.dataGridView1.TabIndex = 0;
             // 
             // menuStrip1
             // 
@@ -124,7 +126,9 @@
             this.файлToolStripMenuItem,
             this.параметрыToolStripMenuItem,
             this.результатыToolStripMenuItem,
-            this.видToolStripMenuItem});
+            this.видToolStripMenuItem,
+            this.обновитьToolStripMenuItem,
+            this.сохранитьToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -143,17 +147,26 @@
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
+            // создатьТурнирToolStripMenuItem
+            // 
+            this.создатьТурнирToolStripMenuItem.Name = "создатьТурнирToolStripMenuItem";
+            this.создатьТурнирToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.создатьТурнирToolStripMenuItem.Text = "Создать турнир";
+            this.создатьТурнирToolStripMenuItem.Click += new System.EventHandler(this.создатьТурнирToolStripMenuItem_Click);
+            // 
             // сохранитьToolStripMenuItem
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
             this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
-            this.сохранитьToolStripMenuItem.Text = "Сохранить";
+            this.сохранитьToolStripMenuItem.Text = "Сохранить как";
+            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
             // 
             // загрузитьToolStripMenuItem
             // 
             this.загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
             this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
-            this.загрузитьToolStripMenuItem.Text = "Загрузить";
+            this.загрузитьToolStripMenuItem.Text = "Открыть ";
+            this.загрузитьToolStripMenuItem.Click += new System.EventHandler(this.загрузитьToolStripMenuItem_Click);
             // 
             // печатьToolStripMenuItem
             // 
@@ -183,32 +196,10 @@
             // 
             // результатыToolStripMenuItem
             // 
-            this.результатыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.добавитьАтлетаToolStripMenuItem,
-            this.изменитьАтлетаToolStripMenuItem,
-            this.удалитьАтлетаToolStripMenuItem});
             this.результатыToolStripMenuItem.Name = "результатыToolStripMenuItem";
-            this.результатыToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
-            this.результатыToolStripMenuItem.Text = "Результаты";
-            // 
-            // добавитьАтлетаToolStripMenuItem
-            // 
-            this.добавитьАтлетаToolStripMenuItem.Name = "добавитьАтлетаToolStripMenuItem";
-            this.добавитьАтлетаToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.добавитьАтлетаToolStripMenuItem.Text = "Добавить атлета";
-            this.добавитьАтлетаToolStripMenuItem.Click += new System.EventHandler(this.добавитьАтлетаToolStripMenuItem_Click);
-            // 
-            // изменитьАтлетаToolStripMenuItem
-            // 
-            this.изменитьАтлетаToolStripMenuItem.Name = "изменитьАтлетаToolStripMenuItem";
-            this.изменитьАтлетаToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.изменитьАтлетаToolStripMenuItem.Text = "Изменить атлета";
-            // 
-            // удалитьАтлетаToolStripMenuItem
-            // 
-            this.удалитьАтлетаToolStripMenuItem.Name = "удалитьАтлетаToolStripMenuItem";
-            this.удалитьАтлетаToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.удалитьАтлетаToolStripMenuItem.Text = "Удалить атлета";
+            this.результатыToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.результатыToolStripMenuItem.Text = "Атлеты";
+            this.результатыToolStripMenuItem.Click += new System.EventHandler(this.результатыToolStripMenuItem_Click);
             // 
             // видToolStripMenuItem
             // 
@@ -225,6 +216,7 @@
             this.добавитьУпражнениеToolStripMenuItem.Name = "добавитьУпражнениеToolStripMenuItem";
             this.добавитьУпражнениеToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.добавитьУпражнениеToolStripMenuItem.Text = "Добавить упражнение";
+            this.добавитьУпражнениеToolStripMenuItem.Click += new System.EventHandler(this.добавитьУпражнениеToolStripMenuItem_Click);
             // 
             // изменитьУпражнениеToolStripMenuItem
             // 
@@ -237,13 +229,25 @@
             this.удалитьУпражнениеToolStripMenuItem.Name = "удалитьУпражнениеToolStripMenuItem";
             this.удалитьУпражнениеToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.удалитьУпражнениеToolStripMenuItem.Text = "Удалить упражнение";
+            this.удалитьУпражнениеToolStripMenuItem.Click += new System.EventHandler(this.удалитьУпражнениеToolStripMenuItem_Click);
             // 
-            // создатьТурнирToolStripMenuItem
+            // обновитьToolStripMenuItem
             // 
-            this.создатьТурнирToolStripMenuItem.Name = "создатьТурнирToolStripMenuItem";
-            this.создатьТурнирToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
-            this.создатьТурнирToolStripMenuItem.Text = "Создать турнир";
-            this.создатьТурнирToolStripMenuItem.Click += new System.EventHandler(this.создатьТурнирToolStripMenuItem_Click);
+            this.обновитьToolStripMenuItem.Name = "обновитьToolStripMenuItem";
+            this.обновитьToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.обновитьToolStripMenuItem.Text = "Обновить";
+            this.обновитьToolStripMenuItem.Click += new System.EventHandler(this.обновитьToolStripMenuItem_Click);
+            // 
+            // сохранитьToolStripMenuItem1
+            // 
+            this.сохранитьToolStripMenuItem1.Name = "сохранитьToolStripMenuItem1";
+            this.сохранитьToolStripMenuItem1.Size = new System.Drawing.Size(77, 20);
+            this.сохранитьToolStripMenuItem1.Text = "Сохранить";
+            this.сохранитьToolStripMenuItem1.Click += new System.EventHandler(this.сохранитьToolStripMenuItem1_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Form1
             // 
@@ -257,10 +261,13 @@
             this.Name = "Form1";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "Form1";
+            this.Activated += new System.EventHandler(this.Form1_Activated);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -280,18 +287,19 @@
         private System.Windows.Forms.ToolStripMenuItem печатьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сохранитьВExcelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem параметрыToolStripMenuItem;
-        private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem результатыToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem добавитьАтлетаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem изменитьАтлетаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem удалитьАтлетаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem видToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem добавитьУпражнениеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem изменитьУпражнениеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьУпражнениеToolStripMenuItem;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ToolStripMenuItem создатьТурнирToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem обновитьToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 

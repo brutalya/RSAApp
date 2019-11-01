@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace RSAApp
 {
+    [Serializable]
     class Athlets
     {
         int number;
@@ -14,28 +15,11 @@ namespace RSAApp
             get { return number; }
             set { if (value > 0) number = value; else throw new Exception("Участников должно быть больше 0!"); }
         }
-        Dictionary<int, string> athletsDict;
-        public Dictionary<int, string> AthletsDict
+        List<Athlet> athList;
+        public List<Athlet>AthList
         {
-            get
-            {
-                return athletsDict;
-            }
-            set
-            {
-                bool isok = true;
-                foreach (KeyValuePair<int, string> item in value)
-                    if (item.Key <= 0||item.Key>value.Count)
-                    {
-                        isok = false;
-                        throw new Exception("Ошибка ввода! Номер атлета должен быть больше Ноля и числа участников!");
-                    }
-                foreach (KeyValuePair<int, string> item in value)
-                {
-                    //чтоб не были одинаковыми
-                }
-                athletsDict = value;
-            }
+            get { return athList; }
+            set { if (value.Count() == Number) athList = value; else throw new Exception("Ошибка!"); }
         }
         public Athlets()
         {
@@ -44,25 +28,52 @@ namespace RSAApp
         public Athlets(int num)
         {
             Number = num;
+            AthList = new List<Athlet>(num);
         }
-        public Athlets(Dictionary<int,string> ath)
+        public Athlets(List<Athlet> a)
         {
-            AthletsDict = ath;
-            
+            Number = a.Count();
+            AthList = a;
         }
-        public void addAthlet(int key,string value)
+        public void addAthlet(Athlet a)
         {
-            Dictionary<int, string> tempAthlets = AthletsDict;
-            tempAthlets.Add(key, value);
-            AthletsDict = tempAthlets;
+            AthList.Add(a);
         }
-        public void removeAthlet(int key)
+        public void addAthlet(int n, string name)
         {
-            AthletsDict.Remove(key);
+            AthList.Add(new Athlet(name,n));
         }
-        public void changeAthlet(int key,string newValue)
+        public void removeAthlet(Athlet a)
         {
-            AthletsDict[key] = newValue;
+            AthList.Remove(a);
+        }
+        public void removeAthlet(int n)
+        {
+            foreach(Athlet item in AthList)
+            {
+                if (item.Number == n) AthList.Remove(item);
+            }
+        }
+        public void removeAthlet(string name)
+        {
+            foreach (Athlet item in AthList)
+            {
+                if (item.Name == name) AthList.Remove(item);
+            }
+        }
+        public void changeAthletName(int number,string newName)
+        {
+            for(int i =0; i<AthList.Count();i++)
+            {
+                if (AthList[i].Number == number) AthList[i].Name = newName;
+            }
+        }
+        public void changeAthletNumber(int newNumber, string name)
+        {
+            for (int i = 0; i < AthList.Count(); i++)
+            {
+                if (AthList[i].Name == name) AthList[i].Number = number;
+            }
         }
     }
 }

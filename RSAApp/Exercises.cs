@@ -6,9 +6,17 @@ using System.Threading.Tasks;
 
 namespace RSAApp
 {
-    class Exercises: Tournament
+    [Serializable]
+    class Exercises
     {
+        public static List<string> ExNames;
         int number;
+        List<Exercise> exList;
+        public List<Exercise> ExList
+        {
+            get { return exList; }
+            set { exList = value; }
+        }
         public int Number
         {
             get { return number; }
@@ -16,11 +24,17 @@ namespace RSAApp
         }
         public Exercises()
         {
-
+            ExList = new List<Exercise>();
         }
         public Exercises(int num)
         {
             Number = num;
+            ExList = new List<Exercise>(num);
+        }
+        public Exercises(List<Exercise> e)
+        {
+            Number = e.Count();
+            ExList = e;
         }
     }
 }
